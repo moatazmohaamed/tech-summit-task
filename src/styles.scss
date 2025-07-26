@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@use "flowbite/src/themes/default";
+@use '@ngxpert/hot-toast/styles';
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+@plugin "daisyui";
+
+@import "preline/variants.css";
+@source "../node_modules/preline/dist/*.js";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Importing @ngxpert/hot-toast SCSS file. */

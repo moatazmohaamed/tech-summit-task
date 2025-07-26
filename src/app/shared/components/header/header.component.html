@@ -1,0 +1,84 @@
+<div class="flex justify-between flex-col-reverse  md:flex-row items-center py-6 ">
+
+  <div>
+    <form class="max-w-md mx-auto py-5 md:py-0" (input)="search()">
+      <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+          </svg>
+        </div>
+        <input type="search" id="default-search" [(ngModel)]="searchTerm" name="searchTerm"
+          class="block w-[260px] p-4 ps-10 text-lg text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 focus:w-[380px] transition-all duration-[0.5s]"
+          placeholder="Search.." required />
+
+      </div>
+    </form>
+
+  </div>
+
+
+  <div class="flex items-center gap-x-4 ">
+    <select [(ngModel)]="selectedSort" (change)="sort()" class=" p-4 text-lg text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-blue-500
+      focus:border-blue-500 w-full min-w-[200px]" id="sort-select">
+      <option value="" disabled selected>Sort by</option>
+      <option class="text-black" *ngFor="let list of sortList" [value]="list.value">{{list.name}}</option>
+    </select>
+
+
+    <div class="flex items-center flex-col  dark:text-white relative z-[9999]">
+      <div class="hs-dropdown pt-2">
+        <button id="hs-dropdown-dark-mode" type="button"
+          class="hs-dropdown-toggle cursor-pointer hs-dark-mode group flex items-center text-gray-600 focus:outline-none font-medium dark:text-white dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+          aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+          <svg class="hs-dark-mode-active:hidden block size-9" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <svg class="hs-dark-mode-active:block hidden size-9" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+        </button>
+        <div id="selectThemeDropdown"
+          class="hs-dropdown-menu ml-0 md:ml-[10rem] hs-dropdown-open:opacity-100 mt-2 hidden  relative transition-[margin,opacity] opacity-0 duration-300 mb-2 origin-bottom-left bg-white shadow-md rounded-lg p-1 space-y-0.5 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
+          role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-dark-mode">
+          <div class="flex flex-col items-start">
+            <button type="button" class="dropDownBtn hover:bg-gray-400 p-4 rounded-5"
+              data-hs-theme-click-value="default">
+              Default (Light)
+            </button>
+            <button type="button" class="dropDownBtn hover:bg-gray-400 p-4 rounded-5" data-hs-theme-click-value="dark">
+              Dark
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div routerLink="/cart" class="w-full relative cursor-pointer ">
+      <img src="/shopping-cart.png" class="size-9 mt-2 dark:bg-white" alt="cart icon">
+      <div>
+        <span
+          class="absolute -top-1 -right-4 bg-black rounded-full px-2 text-white dark:text-black font-bold text-black dark:text-white">{{cartCount}}</span>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
