@@ -21,6 +21,7 @@ Check out the app live at: [tech-summit-task.vercel.app](https://tech-summit-tas
 - Product listing and details
 - Add to cart and cart management
 - Sorting and searching products
+- Category Based Sorting
 - Responsive design (mobile & desktop)
 - Dark mode toggle
 - Modern header and navigation
@@ -45,11 +46,14 @@ Check out the app live at: [tech-summit-task.vercel.app](https://tech-summit-tas
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="public/readme/HOME.png" alt="Home" width="600" />
+  <img src="public/readme/home.png" alt="Home" width="600" />
+  <img src="public/readme/home-2.png" alt="Home 2" width="600" />
+  <img src="public/readme/home3.png" alt="Home 3" width="600" />
   <img src="public/readme/details.png" alt="Product Details" width="600" />
   <img src="public/readme/cart.png" alt="Cart" width="600" />
+  <img src="public/readme/cart-2.png" alt="Cart 2" width="600" />
   <img src="public/readme/sort.png" alt="Sort Options" width="600" />
-  <img src="public/readme/darkmode.png" alt="Dark Mode" width="600" />
+  <img src="public/readme/darkomode-pc.png" alt="Dark Mode" width="600" />
 </div>
 
 ---
@@ -57,9 +61,9 @@ Check out the app live at: [tech-summit-task.vercel.app](https://tech-summit-tas
 ## 📱 Mobile Experience
 
 <div align="center">
-  <img src="public/readme/mobile-home.png" alt="Mobile Home" width="250" />
+  <img src="public/readme/mobile-1.png" alt="Mobile Home" width="250" />
   <img src="public/readme/mobile-details.png" alt="Mobile Details" width="250" />
-  <img src="public/readme/mobile-car.png" alt="Mobile Cart" width="250" />
+  <img src="public/readme/mobile-cart.png" alt="Mobile Cart" width="250" />
 </div>
 
 ---
