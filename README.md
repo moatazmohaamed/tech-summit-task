@@ -10,6 +10,12 @@ This is a showcase Angular application featuring a beautiful UI, smooth user exp
 
 ---
 
+## 🌐 Live Demo
+
+Check out the app live at: [tech-summit-task.vercel.app](https://tech-summit-task.vercel.app)
+
+---
+
 ## ✨ Features
 
 - Product listing and details
