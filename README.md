@@ -1,59 +1,88 @@
-# SummitTask
+# 🏔️ Product Gallery Web App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+> A modern, responsive shopping cart demo built with Angular and TailwindCSS.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Overview
+
+This is a showcase Angular application featuring a beautiful UI, smooth user experience, and robust code structure. It demonstrates best practices in Angular development, state management, and UI design using TailwindCSS.
+
+---
+
+## ✨ Features
+
+- Product listing and details
+- Add to cart and cart management
+- Sorting and searching products
+- Responsive design (mobile & desktop)
+- Dark mode toggle
+- Modern header and navigation
+
+---
+
+## 🛠️ Tech Stack
+
+- **Angular** 19.2.15 — SPA framework
+- **TailwindCSS** — Utility-first CSS for rapid UI development
+- **RxJS** — Reactive programming
+- **Angular Router** — Client-side routing
+- **Flowbite** — UI components for TailwindCSS
+
+### 📦 Libraries Used
+
+- `tailwindcss`, `flowbite`
+- `rxjs`
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+  <img src="public/readme/HOME.png" alt="Home" width="600" />
+  <img src="public/readme/details.png" alt="Product Details" width="600" />
+  <img src="public/readme/cart.png" alt="Cart" width="600" />
+  <img src="public/readme/sort.png" alt="Sort Options" width="600" />
+  <img src="public/readme/darkmode.png" alt="Dark Mode" width="600" />
+</div>
+
+---
+
+## 📱 Mobile Experience
+
+<div align="center">
+  <img src="public/readme/mobile-home.png" alt="Mobile Home" width="250" />
+  <img src="public/readme/mobile-details.png" alt="Mobile Details" width="250" />
+  <img src="public/readme/mobile-car.png" alt="Mobile Cart" width="250" />
+</div>
+
+---
+
+## ⚡ Getting Started
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/moatazmohaamed/tech-summit-task.git
+cd summit-task
+npm install
+```
+
+Start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Visit [http://localhost:4200](http://localhost:4200) in your browser.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🧩 Code Structure
 
-```bash
-ng generate component component-name
-```
+- `src/app/pages/products` — Product listing & details
+- `src/app/shared/components` — Reusable UI components
+- `src/app/shared/pipes` — Custom pipes (sorting)
+- `src/app/core/services` — API & business logic
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
