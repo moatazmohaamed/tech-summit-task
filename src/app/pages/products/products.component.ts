@@ -1,4 +1,4 @@
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { Product } from '../../shared/interface/IProduct';
@@ -11,7 +11,13 @@ import { HotToastService } from '@ngxpert/hot-toast';
 
 @Component({
   selector: 'app-products',
-  imports: [CurrencyPipe, RouterLink, HeaderComponent, SortProductsPipe],
+  imports: [
+    CurrencyPipe,
+    RouterLink,
+    HeaderComponent,
+    SortProductsPipe,
+    CommonModule,
+  ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
@@ -24,8 +30,7 @@ export class ProductsComponent {
   filteredProducts: Product[] = [];
   currency = CurrencyPipe;
   private destroy = new Subject<void>();
-  constructor(private toastr: HotToastService) { }
-
+  constructor(private toastr: HotToastService) {}
 
   getAllProducts() {
     this.productService
@@ -53,7 +58,15 @@ export class ProductsComponent {
     const searchText =
       this.route.snapshot.queryParams['searchText']?.toLowerCase() || '';
     const sortOption = this.route.snapshot.queryParams['sort'] || '';
-    let filtered = this.products.filter((product) =>
+    const category = this.route.snapshot.queryParams['category'] || 'all';
+
+    let filtered = this.products;
+    if (category && category !== 'all') {
+      filtered = filtered.filter(
+        (product) => product.category?.toLowerCase() === category.toLowerCase()
+      );
+    }
+    filtered = filtered.filter((product) =>
       product.title.toLowerCase().includes(searchText)
     );
     this.filteredProducts = this.sortPipe.transform(filtered, sortOption);
@@ -67,9 +80,7 @@ export class ProductsComponent {
   addToCart(productId: number): void {
     this.cartService.addToCart(productId);
     this.toastr.success('Product added to Cart ✅', {
-      duration: 1000
+      duration: 1000,
     });
   }
-
-
 }

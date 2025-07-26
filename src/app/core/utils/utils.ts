@@ -9,5 +9,12 @@ export const sortTypes = [
     name: 'Name (Z-A)',
     value: 'name-desc',
   },
+];
 
+export const navLinks = [
+  { name: 'All', category: 'all' },
+  { name: 'Men', category: "men's clothing" },
+  { name: 'Women', category: "women's clothing" },
+  { name: 'Electronics', category: 'electronics' },
+  { name: 'Jewelery', category: 'jewelery' },
 ];

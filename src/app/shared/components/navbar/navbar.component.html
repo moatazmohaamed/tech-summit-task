@@ -1,0 +1,91 @@
+<nav class="bg-black border-gray-200 mb-5">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <span routerLink="/"
+      class="cursor-pointer self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Fake Store
+      Api</span>
+    <button data-collapse-toggle="navbar-default" type="button"
+      class="inline-flex pt-4 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul
+        class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg     md:flex-row text-xl md:mt-0 md:border-0 md:bg-black ">
+        @for (item of navLinks; track item.name) {
+        <li class="nav-item">
+          <a class="block py-2 px-6  rounded md:border-0 dark:text-gray-400 cursor-pointer" [routerLink]="[]"
+            routerLinkActive="bg-white rounded-full px-3 py-1 text-black" [queryParams]="{ category: item.category }"
+            queryParamsHandling="merge">
+            {{ item.name }}
+          </a>
+        </li>
+        }
+      </ul>
+
+
+
+    </div>
+    <div class="flex items-center justify-center  dark:text-white relative z-[9999]">
+      <div class="hs-dropdown pt-2 space-x-6">
+        <button id="hs-dropdown-dark-mode" type="button"
+          class="hs-dropdown-toggle cursor-pointer hs-dark-mode group flex items-center text-gray-600 focus:outline-none font-medium dark:text-white dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+          aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+          <svg class="hs-dark-mode-active:hidden block size-9 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
+            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <svg class="hs-dark-mode-active:block hidden size-9  text-white" xmlns="http://www.w3.org/2000/svg" width="24"
+            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+        </button>
+        <div id="selectThemeDropdown"
+          class="hs-dropdown-menu ml-0 md:ml-[10rem] hs-dropdown-open:opacity-100 mt-2 hidden opacity-0   relative transition-[margin,opacity] duration-300 mb-2 origin-bottom-left bg-white shadow-md rounded-lg p-1 space-y-0.5 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
+          role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-dark-mode">
+          <div class="flex flex-col items-start ">
+            <button type="button" class="dropDownBtn hover:bg-gray-600 hover:rounded-lg hover:text-white text-gray-500 cursor-pointer
+              dark:text-white p-4 rounded-5" data-hs-theme-click-value="default">
+              Default (Light)
+            </button>
+            <button type="button"
+              class="dropDownBtn hover:bg-gray-600 hover:rounded-lg hover:text-white text-gray-500 cursor-pointer dark:text-white p-4 rounded-5"
+              data-hs-theme-click-value="dark">
+              Dark
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div routerLink="/cart" class="w-full relative cursor-pointer ">
+        <svg class="size-12 mt-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+          height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8"
+            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+        </svg>
+
+        <div>
+          <span
+            class="absolute -top-1 -right-4 bg-white rounded-full px-2 text-black font-bold text-black ">{{cartCount}}</span>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</nav>

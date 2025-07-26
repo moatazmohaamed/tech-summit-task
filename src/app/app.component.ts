@@ -5,6 +5,7 @@ import { initFlowbite } from 'flowbite';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { IStaticMethods } from 'preline/dist';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 declare global {
   interface Window {
@@ -14,7 +15,7 @@ declare global {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

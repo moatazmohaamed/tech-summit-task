@@ -14,7 +14,7 @@ import { CartService } from '../../../core/services/cart/cart.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   sortList = sortTypes;
   searchTerm = '';
   renderer = inject(Renderer2);
@@ -22,16 +22,6 @@ export class HeaderComponent implements OnInit {
   router = inject(Router);
   route = inject(ActivatedRoute);
   selectedSort = '';
-  cartCount = 0;
-
-  cartService = inject(CartService)
-
-  ngOnInit() {
-    this.themeMode();
-    this.cartService.cartCountSubject.subscribe(count => {
-      this.cartCount = count;
-    });
-  }
 
   search() {
     const queryParams = {
@@ -54,28 +44,4 @@ export class HeaderComponent implements OnInit {
       queryParamsHandling: 'merge',
     });
   }
-
-  themeMode(): void {
-    if (isPlatformBrowser(this.id)) {
-      const html = document.querySelector('html');
-      if (html) {
-        const isLightOrAuto = localStorage.getItem('hs_theme') === 'light';
-        const isDarkOrAuto = localStorage.getItem('hs_theme') === 'dark';
-
-        if (isLightOrAuto && html.classList.contains('dark')) {
-          this.renderer.removeClass(html, 'dark');
-        } else if (isDarkOrAuto && html.classList.contains('light')) {
-          this.renderer.removeClass(html, 'light');
-        } else if (isDarkOrAuto && !html.classList.contains('dark')) {
-          this.renderer.addClass(html, 'dark');
-        } else if (isLightOrAuto && !html.classList.contains('light')) {
-          this.renderer.addClass(html, 'light');
-        }
-      }
-    }
-  }
-
-
-
-
 }
