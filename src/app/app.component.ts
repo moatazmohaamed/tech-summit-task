@@ -7,6 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { IStaticMethods } from 'preline/dist';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FooterComponent } from "./shared/components/footer/footer.component";
 
 declare global {
   interface Window {
@@ -17,7 +18,7 @@ declare global {
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent,
-    MatProgressSpinnerModule,],
+    MatProgressSpinnerModule, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
