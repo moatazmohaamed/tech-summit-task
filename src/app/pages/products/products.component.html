@@ -1,6 +1,12 @@
 <div
   class="container mx-auto px-9 md:px-0 flex flex-col justify-start text-black bg-white dark:text-white dark:bg-black">
   <app-header></app-header>
+
+  @if(loading){
+  <div class="flex justify-center items-center">
+    <mat-spinner></mat-spinner>
+  </div>
+  } @else {
   <div class="grid  md:grid-cols-2 lg:grid-cols-5  gap-6">
     @for (product of filteredProducts; track product.id) {
     <div class="shadow-md rounded-lg ">
@@ -45,5 +51,8 @@
     </h1>
   </div>
   }
+  }
+
+
 
 </div>

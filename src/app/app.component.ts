@@ -6,6 +6,7 @@ import { Router, Event, NavigationEnd } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { IStaticMethods } from 'preline/dist';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 declare global {
   interface Window {
@@ -15,7 +16,8 @@ declare global {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [RouterOutlet, NavbarComponent,
+    MatProgressSpinnerModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -26,7 +28,7 @@ export class AppComponent {
   constructor(
     private flowbiteService: FlowbiteService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.flowbiteService.loadFlowbite((flowbite) => {

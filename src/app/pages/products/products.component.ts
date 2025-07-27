@@ -1,6 +1,6 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { finalize, Subject, takeUntil } from 'rxjs';
 import { Product } from '../../shared/interface/IProduct';
 import { ProductsService } from '../../core/services/products/products.service';
 import { RouterLink, ActivatedRoute } from '@angular/router';
@@ -8,6 +8,8 @@ import { HeaderComponent } from '../../shared/components/header/header.component
 import { SortProductsPipe } from '../../shared/pipes/sort-products.pipe';
 import { CartService } from '../../core/services/cart/cart.service';
 import { HotToastService } from '@ngxpert/hot-toast';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @Component({
   selector: 'app-products',
@@ -17,6 +19,7 @@ import { HotToastService } from '@ngxpert/hot-toast';
     HeaderComponent,
     SortProductsPipe,
     CommonModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
@@ -30,12 +33,16 @@ export class ProductsComponent {
   filteredProducts: Product[] = [];
   currency = CurrencyPipe;
   private destroy = new Subject<void>();
-  constructor(private toastr: HotToastService) {}
+  loading: boolean = false
+  constructor(private toastr: HotToastService) { }
 
   getAllProducts() {
+    this.loading = true;
     this.productService
       .getProducts()
-      .pipe(takeUntil(this.destroy))
+      .pipe(takeUntil(this.destroy),
+        finalize(() => (this.loading = false))
+      )
       .subscribe({
         next: (data) => {
           this.products = data;
