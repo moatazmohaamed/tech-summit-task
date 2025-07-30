@@ -3,6 +3,7 @@ import { navLinks } from '../../../core/utils/utils';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { CartService } from '../../../core/services/cart/cart.service';
+import { WishlistService } from '../../../core/services/wishlist/wishlist.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,9 @@ import { CartService } from '../../../core/services/cart/cart.service';
 export class NavbarComponent {
   navLinks = navLinks;
   cartService = inject(CartService);
+  wishlistService = inject(WishlistService);
   cartCount = 0;
+  wishlistCount = 0;
   renderer = inject(Renderer2);
   id = inject(PLATFORM_ID);
 
@@ -21,6 +24,9 @@ export class NavbarComponent {
     this.themeMode();
     this.cartService.cartCountSubject.subscribe((count) => {
       this.cartCount = count;
+    });
+    this.wishlistService.wishlistCountSubject.subscribe((count) => {
+      this.wishlistCount = count;
     });
   }
 

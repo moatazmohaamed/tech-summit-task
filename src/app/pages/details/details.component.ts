@@ -1,15 +1,16 @@
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { finalize, Subject, takeUntil } from 'rxjs';
 import { ProductsService } from '../../core/services/products/products.service';
 import { HotToastService } from '@ngxpert/hot-toast';
 import { CartService } from '../../core/services/cart/cart.service';
+import { WishlistService } from '../../core/services/wishlist/wishlist.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-details',
-  imports: [CurrencyPipe, RouterLink, MatProgressSpinnerModule],
+  imports: [CurrencyPipe, RouterLink, MatProgressSpinnerModule, CommonModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss',
 })
@@ -18,6 +19,7 @@ export class DetailsComponent {
   productService = inject(ProductsService);
   product: any = '';
   cartService = inject(CartService);
+  wishlistService = inject(WishlistService);
   loading!: boolean;
 
   private destroy = new Subject<void>();
@@ -58,5 +60,22 @@ export class DetailsComponent {
     this.toastr.success('Product added to Cart ✅', {
       duration: 1000
     });
+  }
+
+  toggleWishlist(productId: number): void {
+    this.wishlistService.addToWishlist(productId);
+    if (this.isInWishlist(productId)) {
+      this.toastr.success('Product removed from Wishlist', {
+        duration: 1000,
+      });
+    } else {
+      this.toastr.success('Product added to Wishlist ❤️', {
+        duration: 1000,
+      });
+    }
+  }
+
+  isInWishlist(productId: number): boolean {
+    return this.wishlistService.isInWishlist(productId);
   }
 }

@@ -25,4 +25,12 @@ export const routes: Routes = [
       ),
     title: 'cart',
   },
+  {
+    path: 'wishlist',
+    loadComponent: () =>
+      import('./pages/wishlist/wishlist.component').then(
+        (m) => m.WishlistComponent
+      ),
+    title: 'Wishlist',
+  },
 ];
